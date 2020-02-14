@@ -1,5 +1,6 @@
 package br.com.rd.desafio.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,11 +12,39 @@ public class Curso {
     private Integer qtdMaxAlunos;
     private List<Aluno> listaAlunosMatriculados;
 
-    public Curso(){}
+    public Curso(){
+        init();
+    }
 
-    public Curso(String nome, Integer codigo) {
+    public Curso(String nome, Integer codigo, Integer qtdMaxAlunos) {
         this.nome = nome;
         this.codigo = codigo;
+        this.qtdMaxAlunos = qtdMaxAlunos;
+        init();
+    }
+
+    private void init(){
+        this.listaAlunosMatriculados = new ArrayList<>();
+    }
+
+    public Boolean adicionarUmAluno(Aluno umAluno){
+        if(this.listaAlunosMatriculados.size() < this.qtdMaxAlunos){
+            this.listaAlunosMatriculados.add(umAluno);
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public void excluirAluno(Aluno umAluno){
+        if(this.listaAlunosMatriculados.contains(umAluno)){
+            this.listaAlunosMatriculados.remove(umAluno);
+        }
+    }
+
+    public List<Aluno> getListaAlunosMatriculados() {
+        return listaAlunosMatriculados;
     }
 
     public String getNome() {
