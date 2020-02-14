@@ -1,10 +1,15 @@
 package br.com.rd.desafio.model;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Curso {
     private String nome;
     private Integer codigo;
+    private ProfessorTitular professorTitular;
+    private ProfessorAdjunto professorAdjunto;
+    private Integer qtdMaxAlunos;
+    private List<Aluno> listaAlunosMatriculados;
 
     public Curso(){}
 
@@ -27,6 +32,30 @@ public class Curso {
 
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
+    }
+
+    public ProfessorTitular getProfessorTitular() {
+        return professorTitular;
+    }
+
+    public void setProfessorTitular(ProfessorTitular professorTitular) {
+        this.professorTitular = professorTitular;
+    }
+
+    public ProfessorAdjunto getProfessorAdjunto() {
+        return professorAdjunto;
+    }
+
+    public void setProfessorAdjunto(ProfessorAdjunto professorAdjunto) {
+        this.professorAdjunto = professorAdjunto;
+    }
+
+    public Integer getQtdMaxAlunos() {
+        return qtdMaxAlunos;
+    }
+
+    public void setQtdMaxAlunos(Integer qtdMaxAlunos) {
+        this.qtdMaxAlunos = qtdMaxAlunos;
     }
 
     @Override
