@@ -40,6 +40,13 @@ public class DigitalHouseManager {
         this.listaDeProfessores.add(professorTitular);
     }
 
+    public void excluirProfessor(Integer codigoProfessor){
+        this.listaDeProfessores.removeIf(curso -> (curso.getCodigo() == codigoProfessor));
+    }
+
+    
+
+
 
 
 }
