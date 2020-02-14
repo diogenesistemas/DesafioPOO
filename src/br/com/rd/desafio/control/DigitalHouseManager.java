@@ -14,5 +14,25 @@ public class DigitalHouseManager {
     List<Curso> listaDeCursos;
     List<Matricula> listaDeMatricula;
 
+    public DigitalHouseManager(){
+        init();
+    }
+
+    private void init(){
+       this.listaDeCursos = new ArrayList<>();
+    }
+
+
+    public void registrarCurso(String nome, Integer codigoCurso, Integer quantidadeMaximaDeAlunos) {
+        Curso curso = new Curso(nome, codigoCurso, quantidadeMaximaDeAlunos);
+    }
+
+    public void excluirCurso(Integer codigoCurso){
+        this.listaDeCursos.removeIf(curso -> (curso.getCodigo() == codigoCurso));
+    }
+
+
+
+
 
 }
