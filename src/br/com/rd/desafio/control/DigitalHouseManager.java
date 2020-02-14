@@ -30,6 +30,9 @@ public class DigitalHouseManager {
     public void registrarCurso(String nome, Integer codigoCurso, Integer quantidadeMaximaDeAlunos) {
         Curso curso = new Curso(nome, codigoCurso, quantidadeMaximaDeAlunos);
         this.listaDeCursos.add(curso);
+        System.out.println("Registrando Curso Tamanho: " + this.listaDeCursos.size());
+
+
     }
 
     public void excluirCurso(Integer codigoCurso) {
@@ -39,11 +42,13 @@ public class DigitalHouseManager {
     public void registrarProfessorAdjunto(String nome, String sobrenome, Integer codigoProfessor, Integer quantidadeDeHoras) {
         ProfessorAdjunto professorAdjunto = new ProfessorAdjunto(nome, sobrenome, codigoProfessor, quantidadeDeHoras);
         this.listaDeProfessores.add(professorAdjunto);
+        System.out.println("Registrando Professor Adjunto");
     }
 
     public void registrarProfessorTitular(String nome, String sobrenome, Integer codigoProfessor, String especialidade) {
         ProfessorTitular professorTitular = new ProfessorTitular(nome, sobrenome, codigoProfessor, especialidade);
         this.listaDeProfessores.add(professorTitular);
+        System.out.println("Registrando Professor Titular");
     }
 
     public void excluirProfessor(Integer codigoProfessor) {
@@ -56,24 +61,30 @@ public class DigitalHouseManager {
     }
 
     private Curso localizarCurso(Integer codigCurso) {
-        for (Curso curso : this.listaDeCursos)
-            if (curso.getCodigo() == codigCurso)
+        for (Curso curso : this.listaDeCursos) {
+            if (curso.getCodigo().equals(codigCurso)) {
                 return curso;
+            }
+        }
         return null;
-
     }
 
     private Aluno localizarAluno(Integer codigoAluno) {
-        for (Aluno aluno : this.listaDeAlunos)
-            if (aluno.getCodigo() == codigoAluno)
+        for (Aluno aluno : this.listaDeAlunos) {
+            if (aluno.getCodigo().equals(codigoAluno)) {
                 return aluno;
+            }
+        }
         return null;
     }
 
+
     private Professor localizarProfessor(Integer codigoProfessor) {
-        for (Professor professor : this.listaDeProfessores)
-            if (professor.getCodigo() == codigoProfessor)
+        for (Professor professor : this.listaDeProfessores) {
+            if (professor.getCodigo().equals(codigoProfessor)) {
                 return professor;
+            }
+        }
         return null;
     }
 
@@ -102,15 +113,17 @@ public class DigitalHouseManager {
         }
     }
 
-    public void alocarProfessores(Integer codigoCurso, Integer codigoProfessorTitular, Integer codigoProfessorAdjunto){
+    public void alocarProfessores(Integer codigoCurso, Integer codigoProfessorTitular, Integer codigoProfessorAdjunto) {
 
         Professor professorTitularProcurado = localizarProfessor(codigoProfessorTitular);
         Professor professorAdjuntoProcurado = localizarProfessor(codigoProfessorAdjunto);
         Curso cursoProcurado = localizarCurso(codigoCurso);
 
-        if(professorTitularProcurado!=null && professorAdjuntoProcurado!=null && cursoProcurado!=null){
+
+        if (professorTitularProcurado != null && professorAdjuntoProcurado != null && cursoProcurado != null) {
             cursoProcurado.setProfessorAdjunto((ProfessorAdjunto) professorAdjuntoProcurado);
             cursoProcurado.setProfessorTitular((ProfessorTitular) professorTitularProcurado);
+
         }
     }
 
