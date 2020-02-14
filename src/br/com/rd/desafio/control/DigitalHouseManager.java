@@ -1,9 +1,6 @@
 package br.com.rd.desafio.control;
 
-import br.com.rd.desafio.model.Aluno;
-import br.com.rd.desafio.model.Curso;
-import br.com.rd.desafio.model.Matricula;
-import br.com.rd.desafio.model.Professor;
+import br.com.rd.desafio.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,18 +17,28 @@ public class DigitalHouseManager {
 
     private void init(){
        this.listaDeCursos = new ArrayList<>();
+       this.listaDeProfessores = new ArrayList<>();
     }
 
 
     public void registrarCurso(String nome, Integer codigoCurso, Integer quantidadeMaximaDeAlunos) {
         Curso curso = new Curso(nome, codigoCurso, quantidadeMaximaDeAlunos);
+        this.listaDeCursos.add(curso);
     }
 
     public void excluirCurso(Integer codigoCurso){
         this.listaDeCursos.removeIf(curso -> (curso.getCodigo() == codigoCurso));
     }
 
+    public void registrarProfessorAdjunto(String nome, String sobrenome, Integer codigoProfessor, Integer quantidadeDeHoras){
+        ProfessorAdjunto professorAdjunto = new ProfessorAdjunto(nome, sobrenome, codigoProfessor, quantidadeDeHoras);
+        this.listaDeProfessores.add(professorAdjunto);
+    }
 
+    public void registrarProfessorTitular(String nome, String sobrenome, Integer codigoProfessor, String especialidade){
+        ProfessorTitular professorTitular = new ProfessorTitular(nome, sobrenome, codigoProfessor, especialidade);
+        this.listaDeProfessores.add(professorTitular);
+    }
 
 
 
