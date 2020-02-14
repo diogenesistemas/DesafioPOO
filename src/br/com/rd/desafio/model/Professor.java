@@ -2,7 +2,7 @@ package br.com.rd.desafio.model;
 
 import java.util.Objects;
 
-public class Professor {
+public abstract class Professor {
     private String nome;
     private String sobrenome;
     private Integer codigo;
