@@ -15,7 +15,8 @@ public class Principal {
         dh.registrarProfessorAdjunto("Ricardo", "Marcedo", 3, 40);
         dh.registrarProfessorAdjunto("Diogo", "Ferreira", 4, 20);
 
-     
+        dh.registrarCurso("Full Stack", 20001, 3);
+        dh.registrarCurso("Android", 20002, 32;
 
 
     }
