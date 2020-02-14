@@ -18,6 +18,7 @@ public class DigitalHouseManager {
     private void init(){
        this.listaDeCursos = new ArrayList<>();
        this.listaDeProfessores = new ArrayList<>();
+       this.listaDeAlunos = new ArrayList<>();
     }
 
 
@@ -44,7 +45,12 @@ public class DigitalHouseManager {
         this.listaDeProfessores.removeIf(curso -> (curso.getCodigo() == codigoProfessor));
     }
 
-    
+    public void matricularAluno(String nome, String sobrenome, Integer codigoAluno){
+        Aluno aluno = new Aluno(nome, sobrenome, codigoAluno);
+        this.listaDeAlunos.add(aluno);
+    }
+
+
 
 
 
